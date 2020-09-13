@@ -21,15 +21,17 @@ $(document).ready(function ($) {
         }, 1200, 'linear');
     });
 
-    // Clients Owl
+    // Services Owl
     $('.owlServices').owlCarousel({
-        rtl: true,
         margin: 20,
         autoplay: true,
         loop: true,
         nav: true,
         dots:false,
-        navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
+        autoplaySpeed : 2000,
+        autoplayTimeout : 2000,
+        smartSpeed: 2000 ,
+        navText: ["<i class='icofont-long-arrow-right'></i>", "<i class='icofont-long-arrow-left'></i>"],
         responsive: {
             0: {
                 items: 1
@@ -43,14 +45,41 @@ $(document).ready(function ($) {
         }
     });
 
+    
+    // Projects Owl
+    $('.owlProjects').owlCarousel({
+        margin: 0,
+        autoplay: true,
+        loop: true,
+        nav: false,
+        dots:true,
+        autoplaySpeed : 2000,
+        autoplayTimeout : 2000,
+        smartSpeed: 2000 ,
+        navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    });
+
     // Clients Owl
-    $('.owlClients').owlCarousel({
-        rtl: true,
+    $('.owlSponsors').owlCarousel({
         margin: 20,
         autoplay: true,
         loop: true,
         nav: true,
         dots:false,
+        autoplaySpeed : 2000,
+        autoplayTimeout : 2000,
+        smartSpeed: 2000 ,
         navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
         responsive: {
             0: {
@@ -63,6 +92,20 @@ $(document).ready(function ($) {
                 items: 5
             }
         }
+    });
+
+    // Filter Tab
+    $('.filterTab').on('click', function(e) {
+        e.preventDefault();
+        $('.filterTab').removeClass('active animate');
+        $(this).addClass('active animate');
+        setTimeout(function(){
+            $('.filterTab').removeClass('animate');
+        },700);
+        
+        var itemId = $(this).attr("href"); 
+        $('.tabContent').removeClass('show'); 
+        $(itemId).addClass('show');  
     });
 
     // INPUT ANIMATION 
