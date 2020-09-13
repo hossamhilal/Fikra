@@ -1,0 +1,700 @@
+/*=================================================================================*/
+/*=================================================================================*/
+/*=================================================================================*/
+/*==========================||---------------------------||========================*/
+/*==========================|| Developed By Hossam Hilal ||========================*/
+/*==========================||---------------------------||========================*/
+/*====================================||------||===================================*/
+/*====================================|| 2020 ||===================================*/
+/*====================================||------||===================================*/
+/*=================================================================================*/
+/*=================================================================================*/
+
+:root {
+    --white: #fff;
+    --mainColor: #FF445C;
+    --mainColorDark: #D6273E;
+    --secondColor: #fe9801;
+    --opacityColor: #FFEBEE;
+    --textDark: #484848;
+    --text: #929292;
+
+    --greyLight: rgb(221, 221, 221, .25);
+    --grey: #DDDDDD;
+
+    --border: 1px solid #F3F3F3;
+    --shadow: 0px 0px 25px #A2A2A229;
+    --shadow2: 0px 0px 31px #E9E9E930;
+    --grident: transparent linear-gradient(291deg, #FF426C 0%, #FF4455 100%) 0% 0% no-repeat padding-box;
+}
+
+
+@font-face {
+    font-family: Fairuz;
+    src: url('../fonts/Fairuz-Black.eot');
+    src: url('../fonts/Fairuz-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Fairuz-Black.woff2') format('woff2'),
+        url('../fonts/Fairuz-Black.woff') format('woff'),
+        url('../fonts/Fairuz-Black.ttf') format('truetype'),
+        url('../fonts/Fairuz-Black.svg#Fairuz-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Fairuz;
+    src: url('../fonts/Fairuz-Bold.eot');
+    src: url('../fonts/Fairuz-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Fairuz-Bold.woff2') format('woff2'),
+        url('../fonts/Fairuz-Bold.woff') format('woff'),
+        url('../fonts/Fairuz-Bold.ttf') format('truetype'),
+        url('../fonts/Fairuz-Bold.svg#Fairuz-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Fairuz;
+    src: url('../fonts/Fairuz-Normal.eot');
+    src: url('../fonts/Fairuz-Normal.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Fairuz-Normal.woff2') format('woff2'),
+        url('../fonts/Fairuz-Normal.woff') format('woff'),
+        url('../fonts/Fairuz-Normal.ttf') format('truetype'),
+        url('../fonts/Fairuz-Normal.svg#Fairuz-Normal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Basic         ||========================*/
+/*==========================||---------------------------||========================*/
+
+body {
+    font-family: Fairuz, sans-serif;
+    overflow-x: hidden;
+    direction: ltr;
+    text-align: left;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+p {
+    color: var(--text);
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: var(#968AB2);
+    z-index: -1;
+    position: relative;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(#968AB2);
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: var(--darkBlue);
+    max-height: 50px;
+}
+
+
+/*==========================||---------------------------||========================*/
+/*==========================||           Buttons         ||========================*/
+/*==========================||---------------------------||========================*/
+
+.darkBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 45px;
+    background: var(--mainColorDark);
+    color: var(--white);
+    padding: 5px 20px;
+    font-size: 14px;
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.darkBtn i {
+    margin-left: 20px;
+    transition: all .4s ease-in-out;
+    display: inline-block;
+}
+
+.darkBtn:hover {
+    color: var(--white);
+}
+
+.darkBtn:hover i {
+    transform: translateX(500%);
+}
+
+.darkBtn:hover span {
+    transform: translateX(13px);
+    transition: all .4s ease-in-out;
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Header        ||========================*/
+/*==========================||---------------------------||========================*/
+
+header {
+    background: var(--grident);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.navMenu>ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navMenu a {
+    color: var(--white);
+    font-size: 14px;
+    margin: 0 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+.navMenu a::after {
+    content: '';
+    background: var(--white);
+    width: 0;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 3px;
+    transition: all .4s ease-in-out;
+}
+
+.navMenu a:hover::after,
+.navMenu .active a::after {
+    width: 100%;
+}
+
+.navIcons {
+    display: flex;
+    align-items: center;
+}
+
+.theme {
+    margin: 0 15px;
+}
+
+.theme span {
+    margin: 0 5px;
+    cursor: pointer;
+    color: var(--white);
+    display: inline-block;
+    transition: all .4s ease-in-out;
+}
+
+.theme span:hover {
+    transform: scale(1.2);
+}
+
+.language {
+    background: var(--white);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    width: 65px;
+}
+
+.language a {
+    background: var(--grey);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-size: 11px;
+    font-weight: bold;
+    transition: all .4s ease-in-out;
+}
+
+.language a:hover,
+.language .active {
+    background: var(--mainColor);
+    color: var(--white);
+}
+
+.headerData {
+    padding: 40px 0 0 0;
+    color: var(--white);
+}
+
+.headerDeatils h1 {
+    font-size: 47px;
+    line-height: 80px;
+    font-weight: bold;
+}
+
+.headerDeatils p {
+    color: inherit;
+    letter-spacing: 0.21px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.flexButtons {
+    margin: 30px 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flexButtons .darkBtn {
+    margin-right: 30px;
+}
+
+.watchVideo {
+    display: block;
+    position: relative;
+}
+
+.watchVideo img {
+    margin-right: 12px;
+}
+
+.watchVideo:hover {
+    color: var(--white);
+}
+
+.watchVideo::before,
+.watchVideo::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--white);
+}
+
+.watchVideo::before {
+    left: 50%;
+    top: 0;
+    transition-duration: 0.4s;
+}
+
+.watchVideo::after {
+    left: 50%;
+    bottom: 0;
+    transition-duration: 0.4s;
+}
+
+.watchVideo:hover::before,
+.watchVideo:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.watchVideoInner {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    height: 45px;
+    padding: 0 20px;
+}
+
+.watchVideoInner::before,
+.watchVideoInner::after {
+    content: "";
+    width: 1px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: var(--white);
+    ;
+}
+
+.watchVideoInner::before {
+    left: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+}
+
+.watchVideoInner::after {
+    right: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+}
+
+.watchVideo:hover .watchVideoInner::before,
+.watchVideo:hover .watchVideoInner::after {
+    height: 100%;
+    top: 0;
+}
+
+.scrollDown {
+    display: flex;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.scrollDownBtn {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.scrollDownBtn img {
+    -webkit-animation: scrollDown 2s infinite;
+    animation: scrollDown 2s infinite;
+}
+
+.scrollDownBtn img:nth-of-type(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.scrollDownBtn img:nth-of-type(2) {
+    -webkit-animation-delay: .15s;
+    animation-delay: .15s;
+}
+
+@-webkit-keyframes scrollDown {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*==========================||---------------------------||========================*/
+/*==========================||          container        ||========================*/
+/*==========================||---------------------------||========================*/
+
+@media (min-width:1300px) {
+    .container {
+        max-width: 1250px;
+    }
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||           About           ||========================*/
+/*==========================||---------------------------||========================*/
+
+.secPadding {
+    padding: 50px 0;
+}
+
+.secHead {
+    text-align: center;
+    max-width: 550px;
+    margin: 0 auto 40px;
+}
+
+.secHead h2 {
+    font-size: 45px;
+    line-height: 77px;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    color: var(--textDark);
+}
+
+.secHead h2::before,
+.secHead h2::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 3px;
+    opacity: .2;
+    border-radius: 50%;
+}
+
+.secHead h2::before {
+    background: var(--mainColor);
+    top: 16px;
+    right: -13px;
+}
+
+.secHead h2::after {
+    background: var(--secondColor);
+    margin-top: 5px;
+    left: -13px;
+    bottom: 12px;
+}
+
+.secHead p {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.aboutContent h3 {
+    color: var(--textDark);
+    font-size: 30px;
+    line-height: 55px;
+    font-weight: bold;
+}
+
+.aboutContent p {
+    letter-spacing: 0.24px;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.aboutBlock {
+    margin: 20px 0 0 0;
+    cursor: pointer;
+}
+
+.aboutBlock h4 {
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.52px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.aboutBlock h5 {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.aboutBlock .aboutIcon {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid var(--mainColor);
+    border-radius: 5px;
+    background: var(--opacityColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s ease-in-out;
+}
+
+.aboutBlock span {
+    margin: 0 12px;
+}
+
+.aboutBlock:hover .aboutIcon {
+    background: var(--mainColor);
+}
+
+.aboutBlock:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Services         ||========================*/
+/*==========================||---------------------------||========================*/
+
+.basicHead {
+    max-width: 550px;
+    margin-bottom: 40px;
+}
+
+.basicHead h2 {
+    font-size: 40px;
+    line-height: 70px;
+    font-weight: bold;
+    color: var(--textDark);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.basicHead h2::before {
+    content: '';
+    width: 50px;
+    height: 6px;
+    background: var(--mainColor);
+    position: absolute;
+    top: 100%;
+    margin-top: -5px;
+    border-radius: 3px;
+}
+
+.basicHead h2::after {
+    content: '';
+    width: 150px;
+    height: 3px;
+    background: var(--greyLight);
+    display: block;
+}
+
+.basicHead p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.service {
+    position: relative;
+    border: var(--border);
+    border-radius: 5px;
+    box-shadow: var(--shadow2);
+    padding: 30px 25px;
+    transition: all .5s ease-in-out;
+}
+
+.serviceIcon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.serviceIcon::before {
+    content: '';
+    width: 54px;
+    height: 54px;
+    background: var(--opacityColor);
+    border-radius: 50%;
+    z-index: 0;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.serviceIconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 54px;
+    height: 54px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    background: var(--mainColor);
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.serviceIconBox img {
+    max-width: 30px;
+    margin: auto;
+    transition: all .3s ease-in-out;
+}
+
+.serviceIconBox .redImage {
+    transform: translateY(30px);
+}
+
+.serviceIconBox .whiteImage {
+    transform: translateY(12px);
+}
+
+.serviceFloatImage {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 80px;
+    transform: scale(.5);
+    transition: all .3s ease-in-out;
+}
+
+.service h3 {
+    letter-spacing: 0.52px;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.service p {
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.service:hover {
+    background: var(--mainColor);
+}
+
+.service:hover .serviceIconBox {
+    background: var(--white);
+}
+
+.service:hover .serviceIconBox .whiteImage {
+    transform: translateY(-20px);
+}
+
+.service:hover .serviceIconBox .redImage {
+    transform: translateY(-10px);
+}
+
+.service:hover .serviceFloatImage {
+    transform: scale(1);
+}
+
+.service:hover h3 {
+    color: var(--white);
+}
+
+.service:hover p {
+    color: var(--white);
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Header        ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Header        ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Header        ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||             Header        ||========================*/
+/*==========================||---------------------------||========================*/
