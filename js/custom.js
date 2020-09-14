@@ -44,8 +44,7 @@ $(document).ready(function ($) {
             }
         }
     });
-
-    
+  
     // Projects Owl
     $('.owlProjects').owlCarousel({
         margin: 0,
@@ -93,6 +92,41 @@ $(document).ready(function ($) {
             }
         }
     });
+
+    // Testimonial Owl
+    let owlTestimonial = $('.owl-carousel');
+    owlTestimonial.owlCarousel({
+        margin: 20,
+        autoplay: true,
+        loop: true,
+        nav: false,
+        dots:false,
+        autoplaySpeed : 2000,
+        autoplayTimeout : 2000,
+        smartSpeed: 2000 ,
+        navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 2
+            }
+        }
+    });
+
+    // Go to the next item
+    $('.nextopinion').click(function() {
+        owlTestimonial.trigger('next.owl.carousel');
+    });
+
+    // Go to the previous item
+    $('.prevOpinion').click(function() {
+        owlTestimonial.trigger('prev.owl.carousel', [1000]);
+    })
 
     // Filter Tab
     $('.filterTab').on('click', function(e) {

@@ -26,10 +26,16 @@
     --grey: #DDDDDD;
 
     --border: 1px solid #F3F3F3;
+    --border2: 1px solid #F2F2F2;
+    --border3: 1px solid #F84158;
+
     --shadow: 0px 0px 25px #A2A2A229;
     --shadow2: 0px 0px 31px #E9E9E930;
     --shadow3: 0px 0px 46px #F841584D;
     --shadow4: 0px 10px 40px #CCCCCC47;
+    --shadow5: 0px 0px 16px #8D8D8D17;
+    --shadow6: 0px 0px 16px #F6A93B17;
+
     --grident: transparent linear-gradient(291deg, #FF426C 0%, #FF4455 100%) 0% 0% no-repeat padding-box;
 }
 
@@ -113,6 +119,9 @@ p {
     max-height: 50px;
 }
 
+button {
+    border: 0;
+}
 
 /*==========================||---------------------------||========================*/
 /*==========================||           Buttons         ||========================*/
@@ -152,12 +161,85 @@ p {
     transition: all .4s ease-in-out;
 }
 
+.whiteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    padding: 13px 20px;
+    width: fit-content;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--mainColor);
+    position: relative;
+    overflow: hidden;
+    transition: all .4s ease-in-out;
+}
+
+.whiteBtn::before {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: calc(50% - 15px);
+    background: var(--opacityColor);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all .4s ease-in-out;
+}
+
+.whiteBtn span {
+    position: relative;
+    z-index: 1;
+}
+
+.whiteBtn:hover {
+    color: var(--mainColor);
+}
+
+.whiteBtn:hover::before {
+    width: 400px;
+    height: 400px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+}
+
+.redBtn {
+    background: var(--mainColor);
+    min-width: 120px;
+    color: var(--white);
+}
+
+.redBtn::before {
+    bottom: -23px;
+}
+
+
 /*==========================||---------------------------||========================*/
 /*==========================||             Header        ||========================*/
 /*==========================||---------------------------||========================*/
 
 header {
     background: var(--grident);
+    overflow: hidden;
+}
+
+header::before {
+    content: url('../images/dotsLeft.png');
+    position: absolute;
+    top: 110px;
+    left: calc(50% - 56px);
+}
+
+header::after {
+    content: url('../images/dotsRight.png');
+    position: absolute;
+    left: 5%;
+    bottom: 370px;
 }
 
 .nav {
@@ -431,6 +513,10 @@ header {
 /*==========================||           About           ||========================*/
 /*==========================||---------------------------||========================*/
 
+.about {
+    overflow: hidden;
+}
+
 .secPadding {
     padding: 50px 0;
 }
@@ -541,6 +627,10 @@ header {
 /*==========================||---------------------------||========================*/
 /*==========================||          Services         ||========================*/
 /*==========================||---------------------------||========================*/
+
+.services {
+    overflow: hidden;
+}
 
 .basicHead {
     max-width: 550px;
@@ -711,7 +801,8 @@ header {
     transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.10s, border-bottom-color 0.15s linear 0.20s, border-left-color 0.15s linear 0.30s;
 }
 
-.ownNav .owl-nav {
+.testimonialNav .owl-nav,
+.owlNav .owl-nav {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -720,7 +811,8 @@ header {
     width: 100%;
 }
 
-.ownNav .owl-nav > div {
+.testimonialNav .owl-nav>div,
+.owlNav .owl-nav>div {
     background: var(--white);
     color: var(--mainColor);
     width: 40px;
@@ -735,12 +827,14 @@ header {
     box-shadow: var(--shadow3);
 }
 
-.ownNav .owl-nav > div i {
+.testimonialNav .owl-nav>div i,
+.owlNav .owl-nav>div i {
     position: relative;
     z-index: 1;
 }
 
-.ownNav .owl-prev::before {
+.testimonialNav .owl-prev::before,
+.owlNav .owl-prev::before {
     content: "";
     border-top: 18px solid transparent;
     border-bottom: 18px solid transparent;
@@ -750,7 +844,8 @@ header {
     margin-left: -11px;
 }
 
-.ownNav .owl-next::after {
+.testimonialNav .owl-next::after,
+.owlNav .owl-next::after {
     content: "";
     border-top: 18px solid transparent;
     border-bottom: 18px solid transparent;
@@ -760,16 +855,19 @@ header {
     margin-right: -11px;
 }
 
-.ownNav .owl-nav  >  div:hover {
+.testimonialNav .owl-nav>div:hover,
+.owlNav .owl-nav>div:hover {
     background: var(--mainColor);
     color: var(--white);
 }
 
-.ownNav .owl-prev:hover::before {
+.testimonialNav .owl-prev:hover::before,
+.owlNav .owl-prev:hover::before {
     border-left-color: var(--mainColor);
 }
 
-.ownNav .owl-next:hover::after {
+.testimonialNav .owl-next:hover::after,
+.owlNav .owl-next:hover::after {
     border-right-color: var(--mainColor);
 }
 
@@ -791,6 +889,7 @@ header {
     padding: 40px 0;
     color: var(--white);
     text-align: center;
+    overflow: hidden;
 }
 
 .counts .col-6 {
@@ -849,8 +948,30 @@ header {
 }
 
 /*==========================||---------------------------||========================*/
-/*==========================||             Header        ||========================*/
+/*==========================||          Projects         ||========================*/
 /*==========================||---------------------------||========================*/
+
+.projects {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects::before,
+.projects::after {
+    content: url('../images/dotsProjects.png');
+    position: absolute;
+    z-index: -1;
+}
+
+.projects::after {
+    left: 4%;
+    bottom: 45px;
+}
+
+.projects::before {
+    top: 35%;
+    right: 5%;
+}
 
 .filterList {
     display: flex;
@@ -920,6 +1041,14 @@ header {
     animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
+.tabContent {
+    display: none;
+}
+
+.tabContent.show {
+    display: block;
+}
+
 .owlProjects {
     box-shadow: var(--shadow4);
     border-radius: 10px;
@@ -928,6 +1057,7 @@ header {
 .project {
     border-radius: 10px;
     padding: 40px;
+    background: var(--white);
 }
 
 .projectDetails {
@@ -1053,7 +1183,11 @@ header {
     animation-delay: -0.4s;
 }
 
-.owlProjects .owl-dots {
+.owlDots {
+    margin-bottom: 50px;
+}
+
+.owlDots .owl-dots {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1063,7 +1197,7 @@ header {
     padding: 40px 0 0;
 }
 
-.owlProjects .owl-dot {
+.owlDots .owl-dot {
     width: 17px;
     height: 17px;
     background: var(--greyLight);
@@ -1072,7 +1206,7 @@ header {
     position: relative;
 }
 
-.owlProjects .owl-dot::before {
+.owlDots .owl-dot::before {
     content: '';
     width: 5px;
     height: 5px;
@@ -1084,13 +1218,13 @@ header {
     display: block;
 }
 
-.owlProjects .owl-dot:hover,
-.owlProjects .owl-dot.active {
+.owlDots .owl-dot:hover,
+.owlDots .owl-dot.active {
     background: var(--opacityColor);
 }
 
-.owlProjects .owl-dot:hover::before,
-.owlProjects .owl-dot.active::before {
+.owlDots .owl-dot:hover::before,
+.owlDots .owl-dot.active::before {
     background: var(--mainColor);
 }
 
@@ -1141,6 +1275,359 @@ header {
 }
 
 /*==========================||---------------------------||========================*/
+/*==========================||         Ask Question      ||========================*/
+/*==========================||---------------------------||========================*/
+
+.askQuestion {
+    background: url('../images/bg-questions.png') no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: var(--white);
+}
+
+.askQuestion .whiteBtn {
+    margin: 50px auto 0;
+    width: 150px;
+    padding: 15px 30px;
+}
+
+.askQuestion h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||         Testimonial       ||========================*/
+/*==========================||---------------------------||========================*/
+
+.testimonial {
+    padding: 100px 0;
+    position: relative;
+}
+
+.testimonial::before {
+    content: url('../images/dotsLeft.png');
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+
+.testimonial::after {
+    content: url('../images/dotsRight.png');
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+}
+
+.testimonial .row {
+    align-items: center;
+}
+
+.testimonialData {
+    padding: 5px 0 0 0;
+    position: relative;
+}
+
+.testimonialData h2 {
+    font-size: 40px;
+    line-height: 70px;
+    font-weight: bold;
+    color: var(--textDark);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.testimonialData p {
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.testimonialData::before,
+.testimonialData::after {
+    content: '';
+    background: var(--secondColor);
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+}
+
+.testimonialData::before {
+    width: 50px;
+}
+
+.testimonialData::after {
+    width: 15px;
+    left: 60px;
+}
+
+.testimonialNav .owl-nav {
+    justify-content: flex-end;
+}
+
+.owlTestimonial .item {
+    padding: 45px 15px 15px;
+}
+
+.opionion {
+    position: relative;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 60px 20px 20px;
+}
+
+.opinionAvatar {
+    width: 100px;
+    height: 100px;
+    border: 5px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.opinionAvatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.opinionHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: var(--border);
+    padding: 12px 0 0 0;
+}
+
+.opinionHead .data {
+    width: calc(100% - 40px);
+}
+
+.opinionHead .icon {
+    width: 30px;
+}
+
+.opinionData {
+    min-height: 115px;
+}
+
+.opionion p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.opionion h2 {
+    font-size: 18px;
+    line-height: 31px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.opionion .rate {
+    font-size: 12px;
+}
+
+.opionion .rate .orange {
+    color: var(--secondColor);
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||           Blogs           ||========================*/
+/*==========================||---------------------------||========================*/
+
+.blogs {
+    position: relative;
+}
+
+.blogs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--mainColor);
+    width: 100%;
+    height: 60%;
+}
+
+.blogs::after {
+    content: url('../images/dotsProjects.png');
+    position: absolute;
+    bottom: 30px;
+    right: -200px;   
+}
+
+.blogs .container {
+    position: relative;
+    z-index: 1;
+}
+
+.secHeadWhite {
+    color: var(--white);
+}
+
+.secHeadWhite h2,
+.secHeadWhite p {
+    color: inherit;
+}
+
+.blog {
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.blogImage {
+    height: 250px;
+    overflow: hidden;
+}
+
+.blogImage img {
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+}
+
+.blogData {
+    padding: 20px;
+}
+
+.blogData ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.blogData li {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.blogData li:last-of-type {
+    margin: 0 25px;
+}
+
+.blogData li img {
+    margin-right: 10px;
+}
+
+.blogData h2 {
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: bold;
+    transition: all .5s ease-in-out;
+}
+
+.blogData p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.blogArrow {
+    color: var(--mainColor);
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.blogArrow label {
+    margin: 0;
+}
+
+.blogArrow span {
+    height: 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blogArrow:hover {
+    color: var(--secondColor);
+}
+
+.blogArrow:hover i {
+    animation: animate 2s infinite;
+}
+
+.blog:hover .blogImage img {
+    transform: scale(1.3)rotate(4deg);
+}
+
+.blog:hover h2 {
+    color: var(--mainColor);
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Contact          ||========================*/
+/*==========================||---------------------------||========================*/
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.form-control {
+    box-shadow: var(--shadow5);
+    border: var(--border2);
+    border-radius: 0px 10px 10px 10px;
+    height: 50px;
+}
+
+textarea.form-control {
+    height: 122px;
+    resize: none;
+}
+
+.form-control:focus {
+    box-shadow: var(--shadow6);
+    border: var(--border3);
+}
+
+.contact .redBtn {
+    width: 150px;
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+.subscribeBox {
+    width: 600px;
+    max-width: 100%;
+    position: relative;
+    margin: 30px auto 0;
+}
+
+.subscribeBox form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscribeBox input {
+    height: 50px;
+    width: calc( 100% - 120px );
+    border-radius: 10px;
+    border: 0;
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+.subscribeBox .whiteBtn {
+    width: 100px;
+    margin: 0;
+}
+
+/*==========================||---------------------------||========================*/
 /*==========================||          Sponsors         ||========================*/
 /*==========================||---------------------------||========================*/
 
@@ -1156,6 +1643,36 @@ header {
     max-width: 100%;
     max-height: 50px;
 }
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Footer           ||========================*/
+/*==========================||---------------------------||========================*/
+
+.footer {
+    background: var(--grident);
+}
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
+
 
 /*==========================||---------------------------||========================*/
 /*==========================||             Header        ||========================*/
