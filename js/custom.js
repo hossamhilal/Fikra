@@ -23,6 +23,7 @@ $(document).ready(function ($) {
 
     // Services Owl
     $('.owlServices').owlCarousel({
+        rtl: true ,
         margin: 20,
         autoplay: true,
         loop: true,
@@ -47,6 +48,7 @@ $(document).ready(function ($) {
   
     // Projects Owl
     $('.owlProjects').owlCarousel({
+        rtl: true ,
         margin: 0,
         autoplay: true,
         loop: true,
@@ -71,6 +73,7 @@ $(document).ready(function ($) {
 
     // Clients Owl
     $('.owlSponsors').owlCarousel({
+        rtl: true ,
         margin: 20,
         autoplay: true,
         loop: true,
@@ -88,7 +91,7 @@ $(document).ready(function ($) {
                 items: 3
             },
             1000: {
-                items: 5
+                items: 6
             }
         }
     });
@@ -96,6 +99,7 @@ $(document).ready(function ($) {
     // Testimonial Owl
     let owlTestimonial = $('.owl-carousel');
     owlTestimonial.owlCarousel({
+        rtl: true ,
         margin: 20,
         autoplay: true,
         loop: true,

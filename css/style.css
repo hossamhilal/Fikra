@@ -86,8 +86,8 @@
 body {
     font-family: Fairuz, sans-serif;
     overflow-x: hidden;
-    direction: ltr;
-    text-align: left;
+    direction: rtl;
+    text-align: right;
 }
 
 a {
@@ -143,7 +143,7 @@ button {
 }
 
 .darkBtn i {
-    margin-left: 20px;
+    margin: 0 20px 0 0;
     transition: all .4s ease-in-out;
     display: inline-block;
 }
@@ -153,11 +153,11 @@ button {
 }
 
 .darkBtn:hover i {
-    transform: translateX(500%);
+    transform: translateX(-500%);
 }
 
 .darkBtn:hover span {
-    transform: translateX(13px);
+    transform: translateX(-13px);
     transition: all .4s ease-in-out;
 }
 
@@ -182,12 +182,13 @@ button {
     content: '';
     position: absolute;
     bottom: -21px;
+    right: calc(50% - 15px);
     left: calc(50% - 15px);
     background: var(--opacityColor);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    transition: all .4s ease-in-out;
+    transition: all .1s ease-in-out;
 }
 
 .whiteBtn span {
@@ -360,7 +361,7 @@ header::after {
 }
 
 .flexButtons .darkBtn {
-    margin-right: 30px;
+    margin: 0 0 0 30px;
 }
 
 .watchVideo {
@@ -369,7 +370,7 @@ header::after {
 }
 
 .watchVideo img {
-    margin-right: 12px;
+    margin: 0 0 0 12px;
 }
 
 .watchVideo:hover {
@@ -693,7 +694,7 @@ header::after {
     z-index: 0;
     position: absolute;
     top: -15px;
-    left: -15px;
+    right: -15px;
 }
 
 .serviceIconBox {
@@ -729,7 +730,7 @@ header::after {
 .serviceFloatImage {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     width: 80px;
     transform: scale(.5);
     transition: all .3s ease-in-out;
@@ -806,7 +807,6 @@ header::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row-reverse;
     padding: 40px 0;
     width: 100%;
 }
@@ -825,6 +825,7 @@ header::after {
     margin: 0px 20px;
     position: relative;
     box-shadow: var(--shadow3);
+    cursor: pointer;
 }
 
 .testimonialNav .owl-nav>div i,
@@ -875,7 +876,7 @@ header::after {
 @media (min-width:1300px) {
     .services .container {
         max-width: 100%;
-        padding-left: 10%;
+        padding: 0 10% 0 15px;
     }
 }
 
@@ -903,7 +904,7 @@ header::after {
     background: var(--white);
     position: absolute;
     top: calc(50% - 30px);
-    right: -7px;
+    left: -7px;
     opacity: .4;
 }
 
@@ -983,7 +984,7 @@ header::after {
     color: var(--text);
     font-size: 15px;
     line-height: 31px;
-    margin: 0 25px 0 0;
+    margin: 0 0 0 25px;
     padding: 5px 10px;
     min-width: 90px;
     display: flex;
@@ -993,6 +994,11 @@ header::after {
     position: relative;
 }
 
+.filterTab:hover {
+    color: var(--mainColor);
+}
+
+.filterTab.active:hover,
 .filterTab.active {
     background: var(--mainColor);
     color: var(--white);
@@ -1091,7 +1097,7 @@ header::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 15px 0 0;
+    margin: 0 0 0 15px;
     color: var(--white);
     padding: 0 10px;
     font-size: 12px;
@@ -1160,7 +1166,7 @@ header::after {
 }
 
 .arrowsBtn label {
-    margin: 0 5px;
+    margin: 0 0 0 10px;
 }
 
 .arrowsIcons {
@@ -1171,7 +1177,7 @@ header::after {
     display: block;
     width: 13px;
     font-size: 19px;
-    margin-left: -6px;
+    margin: 0 -6px 0 0;
     animation: animate 2s infinite;
 }
 
@@ -1240,7 +1246,7 @@ header::after {
 
     100% {
         opacity: 0;
-        transform: translateX(10px);
+        transform: translateX(-10px);
     }
 }
 
@@ -1358,11 +1364,11 @@ header::after {
 
 .testimonialData::after {
     width: 15px;
-    left: 60px;
+    right: 60px;
 }
 
 .testimonialNav .owl-nav {
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .owlTestimonial .item {
@@ -1455,7 +1461,7 @@ header::after {
     content: url('../images/dotsProjects.png');
     position: absolute;
     bottom: 30px;
-    right: -200px;   
+    right: -200px;
 }
 
 .blogs .container {
@@ -1511,7 +1517,7 @@ header::after {
 }
 
 .blogData li img {
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .blogData h2 {
@@ -1564,6 +1570,32 @@ header::after {
 /*==========================||          Contact          ||========================*/
 /*==========================||---------------------------||========================*/
 
+.map {
+    height: 500px;
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.contactBox {
+    max-width: 900px;
+    margin: -150px auto 40px;
+    background: var(--white);
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--shadow4);
+}
+
+.contactForm {
+    padding: 40px 60px 40px 40px;
+}
+
+.contactBox h2 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
 .field {
     margin-bottom: 20px;
 }
@@ -1582,18 +1614,87 @@ header::after {
     height: 50px;
 }
 
-textarea.form-control {
-    height: 122px;
-    resize: none;
-}
-
 .form-control:focus {
     box-shadow: var(--shadow6);
     border: var(--border3);
 }
 
+.form-control::placeholder {
+    font-size: 15px;
+    color: var(--grey);
+}
+
+.field textarea {
+    height: 180px;
+    resize: none;
+}
+
+.contactBox .field {
+    margin-bottom: 10px;
+}
+
+.contactBox .form-control {
+    border-radius: 0;
+}
+
 .contact .redBtn {
-    width: 150px;
+    width: 130px;
+    border-radius: 0;
+    position: absolute;
+    bottom: 40px;
+    left: 35px;
+}
+
+.contact .redBtn:hover::before {
+    border-radius: 0;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--mainColor);
+    height: 100%;
+    padding: 40px 30px;
+    color: var(--white);
+}
+
+.contactInfo p,
+.contactInfo a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    line-height: 40px;
+    margin: 0;
+    font-size: 17px;
+}
+
+.contactInfo p i,
+.contactInfo a i {
+    margin-left: 10px;
+}
+
+.contactInfo hr {
+    border-top-color: var(--white);
+    opacity: 0.2;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+}
+
+.social a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    margin-left: 20px;
+    font-size: 15px;
+    transition: all .4s ease-in-out;
+}
+
+.social a:hover {
+    transform: translateY(-5px);
 }
 
 /*==========================||---------------------------||========================*/
@@ -1604,7 +1705,7 @@ textarea.form-control {
     width: 600px;
     max-width: 100%;
     position: relative;
-    margin: 30px auto 0;
+    margin: 50px auto 0;
 }
 
 .subscribeBox form {
@@ -1615,7 +1716,7 @@ textarea.form-control {
 
 .subscribeBox input {
     height: 50px;
-    width: calc( 100% - 120px );
+    width: calc(100% - 120px);
     border-radius: 10px;
     border: 0;
     padding: 0 15px;
@@ -1650,11 +1751,131 @@ textarea.form-control {
 
 .footer {
     background: var(--grident);
+    padding: 40px 0 20px;
+    color: var(--white);
 }
 
-/*==========================||---------------------------||========================*/
-/*==========================||          Sponsors         ||========================*/
-/*==========================||---------------------------||========================*/
+.footer .footerLogo {
+    margin-bottom: 20px;
+}
+
+.footer .footerLogo img {
+    max-width: 115px;
+}
+
+.footer p {
+    line-height: 30px;
+    font-size: 13px;
+    color: inherit;
+}
+
+.footer .social a {
+    color: inherit;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+.footer .social a:hover {
+    background: var(--white);
+    color: var(--mainColor);
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footerLinks {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footerLinks .linksBlock {
+    min-width: 50%;
+}
+
+.footer h3 {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 30px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer h3::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    bottom: -4px;
+    background: var(--white);
+    right: 0;
+}
+
+.footerLinks a {
+    line-height: 30px;
+    font-size: 13px;
+    color: inherit;
+    display: block;
+    transition: all .4s ease-in-out;
+}
+
+.footerLinks a:hover {
+    transform: translateX(6px);
+}
+
+.footerContact li {
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.footerContact a {
+    color: inherit;
+}
+
+.footerContact span {
+    transition: all .4s ease-in-out;
+}
+
+.footerContact a:hover span {
+    transform: translateX(6px);
+}
+
+.footerContact li i {
+    margin-left: 10px;
+}
+
+.privacy {
+    background: var(--mainColorDark);
+    text-align: center;
+    padding: 10px 0;
+}
+
+.privacy p {
+    font-size: 15px;
+    line-height: 30px;
+    color: var(--white);
+    margin: 0;
+}
+
+
+@media screen and (max-width:991px) {
+    .footer {
+        padding: 50px 0 30px;
+        background: var(--greyBg);
+    }
+
+    .footer .description p {
+        margin-bottom: 20px;
+    }
+}
+
 
 /*==========================||---------------------------||========================*/
 /*==========================||          Sponsors         ||========================*/
@@ -1672,8 +1893,153 @@ textarea.form-control {
 /*==========================||          Sponsors         ||========================*/
 /*==========================||---------------------------||========================*/
 
+/*==========================||---------------------------||========================*/
+/*==========================||          Sponsors         ||========================*/
+/*==========================||---------------------------||========================*/
+
 
 
 /*==========================||---------------------------||========================*/
-/*==========================||             Header        ||========================*/
+/*==========================||             En           ||========================*/
 /*==========================||---------------------------||========================*/
+
+.en {
+    direction: ltr;
+    text-align: left;
+}
+
+.en {
+    direction: rtl;
+    text-align: right;
+}
+
+.en .owl-carousel {
+    direction: ltr;
+}
+
+.en .darkBtn i {
+    margin: 0 0 0 20px;
+    transform: rotate(180deg);
+}
+
+.an .darkBtn:hover i {
+    transform: translateX(500%);
+}
+
+.en .darkBtn:hover span {
+    transform: translateX(13px);
+}
+
+.en .flexButtons .darkBtn {
+    margin: 0 30px 0 0;
+}
+
+.en .watchVideo img {
+    margin: 0 12px 0 0;
+}
+
+.en .serviceIcon::before {
+    right: auto;
+    left: -15px;
+}
+
+.en .serviceFloatImage {
+    right: 0;
+    left: auto;
+}
+
+.en .arrowlink {
+    transform: rotate(180deg);
+}
+
+.en .testimonialNav .owl-nav,
+.en .owlNav .owl-nav {
+    flex-direction: row-reverse;
+}
+
+.en .filterTab {
+    margin: 0 25px 0 0;
+}
+
+.en .projectTag {
+    margin: 0 15px 0 0;
+}
+
+.en .counts .col-6:not(:last-of-type)::after {
+    right: -7px;
+    left: auto;
+}
+
+.en .arrowsBtn i {
+    margin: 0 0 0 -6px;
+}
+
+.en .arrowsBtn i {
+    animation: animateLeft 2s infinite;
+}
+
+@keyframes animateLeft {
+    0% {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+}
+
+.en .testimonialData::after {
+    left: 60px;
+    right: auto;
+}
+
+.en .testimonialNav .owl-nav {
+    justify-content: flex-end;
+}
+
+.en .blogData li img {
+    margin: 0 10px 0 0;
+}
+
+.en .contactForm {
+    padding: 40px 40px 40px 60px;
+}
+
+.en .contact .redBtn {
+    right: 35px;
+    left: auto;
+}
+
+.en .contactInfo p i,
+.en .contactInfo a i {
+    margin: 0 10px 0 0;
+}
+
+.en .social a {
+    margin: 0 20px 0 0;
+}
+
+.en .footer .social a {
+    margin: 0 10px 0 0;
+}
+
+.en .footer h3::after {
+    left: 0;
+    right: auto;
+}
+
+.en .footerContact li i {
+    margin: 0 10px 0 0;
+}
+
+@media (min-width: 1300px) {
+    .en .services .container {
+        padding: 0 15px 0 10%;
+    }
+}
