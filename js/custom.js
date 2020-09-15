@@ -4,21 +4,27 @@ $(document).ready(function ($) {
  
     // Open navbarSide when button is clicked
     $('.navBtn').on('click', function () {
-        $('.headerNav').toggleClass('show');
+        $(this).toggleClass('open');
+        $('.navMenu').toggleClass('show');
         $('body').toggleClass('no-scroll');
-    });
-
-    $('.closeMenu').on('click', function () {
-        $('.headerNav').removeClass('show');     
-        $('body').removeClass('no-scroll');
     });
 
     // Scroll Down
     $('.scrollDownBtn').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ 
-            scrollTop: $($(this).attr('href')).offset().top
+            scrollTop: $($(this).attr('href')).offset().top - 160
         }, 1200, 'linear');
+    });
+
+    $(window).on('scroll', function(){
+        // let sticky = $('.abou').offset().top;
+        let sticky = 400;
+        if ($(window).scrollTop() >= sticky) {
+            $('.nav').addClass('sticky');
+        } else {
+            $('.nav').removeClass('sticky');
+        }
     });
 
     // Services Owl
@@ -77,7 +83,7 @@ $(document).ready(function ($) {
         margin: 20,
         autoplay: true,
         loop: true,
-        nav: true,
+        nav: false,
         dots:false,
         autoplaySpeed : 2000,
         autoplayTimeout : 2000,
