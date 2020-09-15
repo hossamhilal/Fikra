@@ -581,6 +581,12 @@ header::after {
     }
 }
 
+@media screen and (max-width:757px) {
+    header {
+        height: calc( 100vh - 40px );
+    }
+}
+
 @media screen and (max-width:768px) {
     header::before {
         top: 60px;
@@ -699,7 +705,7 @@ header::after {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        z-index: 9;
+        z-index: 999;
     }
 
     .mobileTab {
