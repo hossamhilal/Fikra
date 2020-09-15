@@ -269,6 +269,29 @@ header::after {
     position: relative;
 }
 
+.navMenu a::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    height: 6px;
+    width: 6px;
+    right: -12px;
+    opacity: 0;
+    background: var(--white);
+    border-radius: 100%;
+    will-change: transform;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: dotDrop .3s forwards ease;
+    animation: dotDrop .3s forwards ease;
+}
+
+.navMenu a:hover::before {
+    -webkit-animation: dotBounce .3s forwards linear;
+    animation: dotBounce .3s forwards linear;
+}
+
 .navMenu a::after {
     content: '';
     background: var(--white);
@@ -281,7 +304,6 @@ header::after {
     transition: all .4s ease-in-out;
 }
 
-.navMenu a:hover::after,
 .navMenu .active a::after {
     width: 100%;
 }
@@ -581,9 +603,102 @@ header::after {
     }
 }
 
+@keyframes dotDrop {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+        transform: translateY(0) scaleX(1) scaleY(1)
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(5px) scaleX(1) scaleY(1);
+        transform: translateY(5px) scaleX(1) scaleY(1)
+    }
+}
+
+@-webkit-keyframes dotBounce {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-12px) scaleX(.8) scaleY(2);
+        transform: translateY(-12px) scaleX(.8) scaleY(2)
+    }
+    1% {
+        opacity: 1
+    }
+    25% {
+        opacity: 1;
+        -webkit-transform: translateY(-6px) scaleX(1) scaleY(1);
+        transform: translateY(-6px) scaleX(1) scaleY(1)
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(2) scaleY(.8);
+        transform: translateY(0) scaleX(2) scaleY(.8)
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+        transform: translateY(0) scaleX(1) scaleY(1)
+    }
+    75% {
+        opacity: 1;
+        -webkit-transform: translateY(-3px) scaleX(1) scaleY(1);
+        transform: translateY(-3px) scaleX(1) scaleY(1)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+        transform: translateY(0) scaleX(1) scaleY(1)
+    }
+}
+
+@keyframes dotBounce {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-12px) scaleX(.8) scaleY(2);
+        transform: translateY(-12px) scaleX(.8) scaleY(2)
+    }
+
+    1% {
+        opacity: 1
+    }
+
+    25% {
+        opacity: 1;
+        -webkit-transform: translateY(-6px) scaleX(1) scaleY(1);
+        transform: translateY(-6px) scaleX(1) scaleY(1)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(2) scaleY(.8);
+        transform: translateY(0) scaleX(2) scaleY(.8)
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+        transform: translateY(0) scaleX(1) scaleY(1)
+    }
+
+    75% {
+        opacity: 1;
+        -webkit-transform: translateY(-3px) scaleX(1) scaleY(1);
+        transform: translateY(-3px) scaleX(1) scaleY(1)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+        transform: translateY(0) scaleX(1) scaleY(1)
+    }
+}
+
+
 @media screen and (max-width:757px) {
     header {
-        height: calc( 100vh - 40px );
+        height: calc(100vh - 40px);
     }
 
     .scrollDown {
@@ -742,7 +857,7 @@ header::after {
 
 @media screen and (max-width:757px) {
     header {
-        height: calc( 100vh - 40px );
+        height: calc(100vh - 40px);
     }
 }
 
@@ -2327,12 +2442,12 @@ header::after {
         margin: 20px auto 0;
         position: relative;
     }
-    
+
     .subscribeBox input {
         width: 100%;
         height: 45px;
     }
-    
+
     .subscribeBox .whiteBtn {
         position: absolute;
         left: 3px;
