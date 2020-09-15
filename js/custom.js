@@ -27,6 +27,14 @@ $(document).ready(function ($) {
         }
     });
 
+    // scroll padding
+    $(window).on('load', function(){
+        if ($(window).width() <= 575 && $(window).height() >= 620) {
+            $('.scrollDown').css('padding','35px 0');
+        }
+    });
+
+
     // Services Owl
     $('.owlServices').owlCarousel({
         rtl: true ,

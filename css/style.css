@@ -585,6 +585,10 @@ header::after {
     header {
         height: calc( 100vh - 40px );
     }
+
+    .scrollDown {
+        padding: 35px 0;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -733,6 +737,12 @@ header::after {
     .mobileTab:hover {
         background: var(--white);
         color: var(--mainColor);
+    }
+}
+
+@media screen and (max-width:757px) {
+    header {
+        height: calc( 100vh - 40px );
     }
 }
 
