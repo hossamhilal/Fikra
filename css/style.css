@@ -21,6 +21,9 @@
 
     --green: #1dcc1d;
     --blue: #0084ff;
+    --blueLight: #68D6FE;
+    --yellow: #F9D424;
+    --orange: #FF935A;
 
     --greyLight: rgb(221, 221, 221, .25);
     --grey: #DDDDDD;
@@ -101,21 +104,21 @@ p {
 *::-webkit-scrollbar-track {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: var(#968AB2);
+    background-color: var(--white);
     z-index: -1;
     position: relative;
 }
 
 *::-webkit-scrollbar {
     width: 10px;
-    background-color: var(#968AB2);
+    background-color: var(--white);
 }
 
 *::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: var(--darkBlue);
+    background-color: var(--mainColor);
     max-height: 50px;
 }
 
@@ -241,6 +244,11 @@ header::after {
     position: absolute;
     right: 5%;
     bottom: 370px;
+}
+
+.internalHeader::before,
+.internalHeader::after {
+    display: none;
 }
 
 .nav {
@@ -623,29 +631,35 @@ header::after {
         -webkit-transform: translateY(-12px) scaleX(.8) scaleY(2);
         transform: translateY(-12px) scaleX(.8) scaleY(2)
     }
+
     1% {
         opacity: 1
     }
+
     25% {
         opacity: 1;
         -webkit-transform: translateY(-6px) scaleX(1) scaleY(1);
         transform: translateY(-6px) scaleX(1) scaleY(1)
     }
+
     50% {
         opacity: 1;
         -webkit-transform: translateY(0) scaleX(2) scaleY(.8);
         transform: translateY(0) scaleX(2) scaleY(.8)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: translateY(0) scaleX(1) scaleY(1);
         transform: translateY(0) scaleX(1) scaleY(1)
     }
+
     75% {
         opacity: 1;
         -webkit-transform: translateY(-3px) scaleX(1) scaleY(1);
         transform: translateY(-3px) scaleX(1) scaleY(1)
     }
+
     100% {
         opacity: 1;
         -webkit-transform: translateY(0) scaleX(1) scaleY(1);
@@ -892,6 +906,7 @@ header::after {
 .secHead h2 {
     font-size: 45px;
     line-height: 77px;
+    font-weight: bold;
     font-weight: bold;
     margin: 0;
     position: relative;
@@ -1488,6 +1503,15 @@ header::after {
     margin-bottom: 30px;
 }
 
+.filterList::-webkit-scrollbar-track,
+.filterList::-webkit-scrollbar-thumb,
+.filterList::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+    opacity: 0;
+    display: none;
+}
+
 .filterTab {
     color: var(--text);
     font-size: 15px;
@@ -1791,7 +1815,7 @@ header::after {
 @media screen and (max-width:768px) {
     .filterList {
         overflow-x: scroll;
-        margin: 0;
+        margin: 0 0 15px 0;
     }
 
     .filterTab {
@@ -2384,6 +2408,15 @@ header::after {
         font-size: 17px;
     }
 
+    .field label {
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
+
+    .form-control {
+        height: 43px;
+    }
+
     .form-control,
     .form-control::placeholder {
         font-size: 13px;
@@ -2629,15 +2662,516 @@ header::after {
 }
 
 
-@media screen and (max-width:768px) {}
-
 /*==========================||---------------------------||========================*/
-/*==========================||          Sponsors         ||========================*/
+/*==========================||        Contact Page       ||========================*/
 /*==========================||---------------------------||========================*/
 
+.contactPage {
+    background: url('../images/map.png') no-repeat;
+    background-position: top;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.pageTitle {
+    text-align: center;
+    padding: 30px 0 40px;
+}
+
+.contactMap {
+    position: relative;
+    padding-top: 40px;
+    padding-inline-start: 50px;
+}
+
+.contactMap::before {
+    content: '';
+    width: 30%;
+    height: 80%;
+    background: var(--mainColorDark);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.contactMap::after {
+    content: url('../images/mapDots.png');
+    position: absolute;
+    bottom: 20px;
+    right: -18%;
+}
+
+.contactMap .map {
+    position: relative;
+    z-index: 1;
+}
+
+.contactPage .contactForm {
+    padding: 0;
+}
+
+.contactPage .contactForm .redBtn {
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.contactPage .contactForm .redBtn::before {
+    background: var(--mainColorDark);
+}
+
+.contactPage .contactForm .redBtn:hover {
+    color: var(--white);
+}
+
+.contactBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactBlock .icon {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-end: 15px;
+}
+
+.contactBlock h3 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    color: var(--textDark);
+}
+
+.contactBlock p {
+    font-size: 17px;
+    font-weight: 600;
+    opacity: .7;
+    margin: 0;
+}
+
+@media screen and (max-width: 757px) {
+    .internalHeader {
+        height: auto;
+    }
+
+    .pageTitle {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .pageTitle h2 {
+        font-size: 24px;
+    }
+
+    .contactMap .map {
+        height: 300px;
+        margin-bottom: 40px;
+    }
+
+    .contactBlock {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .contactMap {
+        padding-top: 25px;
+        padding-inline-start: 25px;
+    }
+
+    .contactBlock .icon {
+        width: 40px;
+    }
+
+    .contactBlock h3 {
+        font-size: 15px;
+    }
+
+    .contactBlock p {
+        font-size: 13px;
+    }
+}
+
+
 /*==========================||---------------------------||========================*/
-/*==========================||          Sponsors         ||========================*/
+/*==========================||         About Page        ||========================*/
 /*==========================||---------------------------||========================*/
+
+.pageSeprate hr {
+    opacity: .4;
+}
+
+.aboutBoxs {
+    position: relative;
+}
+
+.aboutBoxs::before {
+    content: url('../images/mapDots.png');
+    position: absolute;
+    right: -150px;
+    top: 20px;
+}
+
+.aboutBox {
+    background: var(--white) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 50px #00000033;
+    border-radius: 25px;
+    height: 100%;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.aboutBox:hover {
+    transform: translateY(-15px);
+}
+
+.aboutBox .icon {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -62px auto 20px;
+}
+
+.aboutBox h3 {
+    color: var(--textDark);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.aboutBox p {
+    font-size: 14px;
+    line-height: 25px;
+    margin: 0;
+}
+
+.aboutBoxs .col-6 {
+    margin: 40px 0;
+}
+
+.aboutBox1 .icon {
+    background: var(--mainColor);
+    box-shadow: 0px 10px 20px #FF445633;
+}
+
+.aboutBox2 .icon {
+    background: var(--orange);
+    box-shadow: 0px 10px 20px #FF935A33;
+}
+
+.aboutBox3 .icon {
+    background: var(--blueLight);
+    box-shadow: 0px 10px 20px #68D6FE33;
+}
+
+.aboutBox4 .icon {
+    background: var(--yellow);
+    box-shadow: 0px 10px 20px #F9D42433;
+}
+
+.aboutSteps {
+    background: url('../images/about-line.png') no-repeat;
+    background-size: cover;
+    padding: 60px 0 80px;
+}
+
+.aboutSteps .col-6:nth-child(even) {
+    transform: translateY(75px);
+}
+
+.aboutStep {
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    -webkit-shape-outside: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 30px #0000001A;
+    width: 250px;
+    height: 280px;
+    width: 215px;
+    height: 240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.aboutStepBox {
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    box-shadow: 0 8px 30px #0000001A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    background: url('../images/Polygon.png') no-repeat;
+    background-size: contain;
+}
+
+.aboutStepBox h3 {
+    color: var(--mainColor);
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.aboutStepBox h4 {
+    color: var(--textDark);
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0;
+}
+
+.aboutAxes {
+    padding-top: 0;
+}
+
+.aboutAxes .row {
+    align-items: center;
+}
+
+.aboutAxesData {
+    max-width: 400px;
+}
+
+.aboutAxes h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--textDark);
+}
+
+.aboutAxesData p {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.aboutAxesList {
+    max-width: 500px;
+    margin: auto;
+}
+
+.aboutAxe {
+    box-shadow: 0px 10px 30px #CCCCCC75;
+    border-radius: 10px;
+    background: var(--white);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+}
+
+.aboutAxe:hover {
+    transform: scale(1.2);
+}
+
+.aboutAxe img {
+    margin-bottom: 15px;
+}
+
+.aboutAxe h3 {
+    font-size: 20px;
+    color: var(--textDark);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.aboutAxe p {
+    font-size: 14px;
+    line-height: 25px;
+    margin: 0;
+}
+
+
+@media screen and (max-width:575px) {
+    .aboutSteps {
+        padding: 30px 0;
+    }
+    
+    .aboutBoxs .col-6 {
+        margin: 20px 0;
+    }
+    
+    .aboutBox .icon {
+        width: 55px;
+        height: 55px;
+        margin: -50px auto 15px;
+        padding: 14px;
+    }
+    
+    .aboutBox h3 {
+        font-size: 15px;
+    }
+    
+    .aboutBox p {
+        font-size: 13px;
+    }
+    
+    .aboutStep {
+        width: 140px;
+        height: 150px;
+        margin: 5px auto;
+    }
+
+    .aboutStepBox h3 {
+        font-size: 25px;
+    }
+    
+    .aboutStepBox h4 {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .aboutAxes h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .aboutAxesData p {
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+    .aboutAxesList .row {
+        margin: 0 -5px;
+    }
+    
+    .aboutAxesList .col-6 {
+        padding: 0 5px;
+    }
+    
+    .aboutAxe {
+        padding: 15px 10px;
+        margin-bottom: 10px;
+    }
+    
+    .aboutAxe img {
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+    .aboutAxe h3 {
+        font-size: 14px;
+    }
+    
+    .aboutAxe p {
+        font-size: 13px;
+        line-height: 21px;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    .aboutBoxs .row {
+        margin: 0 -5px;
+    }
+    
+    .aboutBoxs .col-12 {
+        padding: 0 5px;
+    }
+    
+    .aboutBox {
+        padding: 10px;
+    }
+    
+    .aboutBox .icon {
+        width: 55px;
+        height: 55px;
+        margin: -40px auto 15px;
+        padding: 14px;
+    }
+    
+    .aboutBox h3 {
+        font-size: 14px;
+    }
+    
+    .aboutBox p {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .aboutSteps {
+        padding: 40px 0;
+    }
+    
+    .aboutStep {
+        width: 140px;
+        height: 150px;
+        margin: 5px auto;
+    }
+    
+    .aboutStepBox h3 {
+        font-size: 25px;
+    }
+    
+    .aboutStepBox h4 {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .aboutAxes h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .aboutAxesData p {
+        font-size: 15px;
+    }
+
+    .aboutAxesList .col-6:first-of-type {
+        margin-top: 40px;
+    }
+    
+    .aboutAxesList .col-6:nth-child(2) {
+        margin-top: -15px;
+    }
+
+    .aboutAxesList .col-6:nth-child(3) {
+        margin-top: 30px;
+    }
+
+    .aboutAxe h3 {
+        font-size: 16px;
+    }
+    
+    .aboutAxe img {
+        max-width: 40px;
+    }
+}
+
+@media (min-width:992px) {
+    .aboutAxesList .col-6:first-of-type {
+        margin-top: 100px;
+    }
+    
+    .aboutAxesList .col-6:last-of-type {
+        margin-top: -60px;
+    }
+
+    .aboutAxesList .col-6:nth-child(3) {
+        margin-top: 30px;
+    }
+    
+    .aboutAxe {
+        min-height: 230px;
+    }
+}
 
 /*==========================||---------------------------||========================*/
 /*==========================||          Sponsors         ||========================*/
@@ -2660,11 +3194,6 @@ header::after {
 .en {
     direction: ltr;
     text-align: left;
-}
-
-.en {
-    direction: rtl;
-    text-align: right;
 }
 
 .en .owl-carousel {
@@ -2795,6 +3324,16 @@ header::after {
 
 .en .footerContact li i {
     margin: 0 10px 0 0;
+}
+
+.en .contactMap::before {
+    right: initial;
+    left: 0;
+}
+
+.en .contactMap::after {
+    left: -18%;
+    right: auto;
 }
 
 @media (min-width: 1300px) {
